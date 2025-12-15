@@ -1,0 +1,77 @@
+:root {
+    font-size: 62.5%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    background-color: #202020;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.card {
+    width: 80px;
+    height: 80px;
+    font-size: 1.8rem;
+    color: #c2c2c2;
+    border: 1px solid #fafafa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+}
+
+.ativo { 
+    background-color: red;
+}
+
+.padrao {
+    background-color: #202020;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.gap-4 {
+    gap: 1rem
+}
+
+h1 {
+    color: #fafafa;
+    font-weight: 600;
+    line-height: 3.6rem;
+}
+
+p {
+    color: #fafafa;
+}
+
+span {
+    color: #fafafa;
+}
+

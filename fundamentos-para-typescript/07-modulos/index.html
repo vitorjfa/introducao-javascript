@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo 07 - Sistema de Módulos ES6</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .info-box {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .info-box h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .info-box ul {
+            margin-left: 20px;
+        }
+
+        .info-box li {
+            margin: 8px 0;
+            color: #555;
+        }
+
+        .app-container {
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            background: #fafafa;
+        }
+
+        .produtos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .produto-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .produto-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .produto-nome {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .produto-preco {
+            color: #667eea;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .produto-categoria {
+            background: #e0e7ff;
+            color: #667eea;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.95em;
+            transition: background 0.3s;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #5568d3;
+        }
+
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .carrinho-section {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .carrinho-section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+        }
+
+        .carrinho-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .carrinho-item:last-child {
+            border-bottom: none;
+        }
+
+        .item-info {
+            flex: 1;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .quantidade {
+            background: #f0f0f0;
+            padding: 5px 15px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .btn-remover {
+            background: #ff4757;
+            padding: 8px 16px;
+            width: auto;
+        }
+
+        .btn-remover:hover {
+            background: #e84343;
+        }
+
+        .total {
+            text-align: right;
+            font-size: 1.5em;
+            color: #667eea;
+            font-weight: bold;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #e0e0e0;
+        }
+
+        .vazio {
+            text-align: center;
+            color: #999;
+            padding: 40px;
+            font-style: italic;
+        }
+
+        .code-reference {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+            overflow-x: auto;
+        }
+
+        .code-reference pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+        }
+
+        .warning {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+
+        .success {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Módulo 07: Sistema de Módulos ES6</h1>
+        <p class="subtitle">Import/Export - Como organizar código profissionalmente</p>
+
+        <div class="info-box">
+            <h3>💡 O que você vai aprender:</h3>
+            <ul>
+                <li><strong>Export/Import</strong> - Como dividir código em arquivos</li>
+                <li><strong>Default vs Named exports</strong> - Diferenças importantes</li>
+                <li><strong>Organização de projetos</strong> - Estrutura profissional</li>
+                <li><strong>Aplicação prática</strong> - E-commerce funcional abaixo!</li>
+            </ul>
+        </div>
+
+        <div class="warning">
+            <strong>⚠️ IMPORTANTE:</strong> Módulos ES6 só funcionam com servidor HTTP!<br>
+            Você NÃO pode abrir o arquivo diretamente (file:///).<br>
+            Use Live Server no VS Code ou rode: <code>python -m http.server 8000</code>
+        </div>
+
+        <div class="success">
+            <strong>✅ Estrutura dos arquivos:</strong><br>
+            📂 07-modulos/<br>
+            &nbsp;&nbsp;&nbsp;├── 📄 index.html (este arquivo)<br>
+            &nbsp;&nbsp;&nbsp;├── 📄 app.js (arquivo principal)<br>
+            &nbsp;&nbsp;&nbsp;├── 📄 utils.js (funções utilitárias)<br>
+            &nbsp;&nbsp;&nbsp;├── 📄 produtos.js (dados dos produtos)<br>
+            &nbsp;&nbsp;&nbsp;└── 📄 carrinho.js (lógica do carrinho)
+        </div>
+
+        <!-- APLICAÇÃO FUNCIONANDO -->
+        <div class="app-container">
+            <h2>🛒 E-commerce Demo - Módulos em Ação!</h2>
+            
+            <div id="produtos-container">
+                <h3>Produtos Disponíveis:</h3>
+                <div class="produtos-grid" id="produtos-grid"></div>
+            </div>
+
+            <div class="carrinho-section">
+                <h2>🛒 Seu Carrinho</h2>
+                <div id="carrinho-itens"></div>
+                <div id="carrinho-total"></div>
+            </div>
+        </div>
+
+        <!-- EXPLICAÇÕES -->
+        <div class="info-box">
+            <h3>📚 Como os módulos funcionam nesta aplicação:</h3>
+            
+            <h4>1️⃣ produtos.js - Exportando dados:</h4>
+            <div class="code-reference">
+                <pre>export const produtos = [...];</pre>
+            </div>
+
+            <h4>2️⃣ utils.js - Exportando funções:</h4>
+            <div class="code-reference">
+                <pre>export function formatarPreco(valor) {...}
+export function validarEmail(email) {...}</pre>
+            </div>
+
+            <h4>3️⃣ carrinho.js - Export default + named:</h4>
+            <div class="code-reference">
+                <pre>export default class Carrinho {...}
+export function calcularDesconto() {...}</pre>
+            </div>
+
+            <h4>4️⃣ app.js - Importando tudo:</h4>
+            <div class="code-reference">
+                <pre>import Carrinho from './carrinho.js';
+import { produtos } from './produtos.js';
+import { formatarPreco } from './utils.js';</pre>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <h3>🎯 Por que usar módulos?</h3>
+            <ul>
+                <li>✅ <strong>Organização:</strong> Cada arquivo tem uma responsabilidade</li>
+                <li>✅ <strong>Reutilização:</strong> Importe onde precisar</li>
+                <li>✅ <strong>Manutenção:</strong> Mais fácil encontrar e corrigir bugs</li>
+                <li>✅ <strong>Colaboração:</strong> Múltiplos devs em arquivos diferentes</li>
+                <li>✅ <strong>Performance:</strong> Carrega apenas o que usa</li>
+                <li>✅ <strong>TypeScript:</strong> Essencial para projetos grandes!</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>🔗 Conexão com TypeScript:</h3>
+            <p>Em TypeScript, você faz exatamente igual + tipos:</p>
+            <div class="code-reference">
+                <pre>// produtos.ts
+export interface Produto {
+    id: number;
+    nome: string;
+    preco: number;
+}
+
+export const produtos: Produto[] = [...];</pre>
+            </div>
+        </div>
+
+        <a href="../index.html" style="display: inline-block; margin-top: 30px; padding: 15px 30px; background: #667eea; color: white; text-decoration: none; border-radius: 8px;">
+            ← Voltar ao Menu Principal
+        </a>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

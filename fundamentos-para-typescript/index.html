@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos JavaScript para TypeScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container-header">
+            <div class="logo">🎓 JS → TS</div>
+            <h1>Fundamentos JavaScript para TypeScript</h1>
+            <p class="subtitle">Domine os conceitos essenciais antes de aprender TypeScript</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="intro">
+            <h2>📚 Bem-vindo ao Curso Completo!</h2>
+            <p class="lead">
+                Este é um material <strong>extremamente detalhado</strong> sobre os fundamentos 
+                JavaScript que você <strong>DEVE dominar</strong> antes de estudar TypeScript.
+            </p>
+            <p>
+                Cada módulo contém <strong>centenas de exemplos práticos</strong>, explicações 
+                detalhadas em português e exercícios que preparam você para entender 
+                <strong>por que o TypeScript existe</strong> e como ele resolve os problemas do JavaScript.
+            </p>
+            <div class="alert alert-warning">
+                ⚠️ <strong>Importante:</strong> Siga os módulos na ordem apresentada. 
+                Cada conceito é a base para o próximo! Abra o <strong>DevTools (F12)</strong> 
+                para ver todos os logs educativos.
+            </div>
+        </section>
+
+        <section class="modules">
+            <h2>📖 Módulos do Curso</h2>
+
+            <div class="module-card">
+                <div class="module-header">
+                    <span class="module-number">01</span>
+                    <h3>Tipagem Dinâmica e Tipos Primitivos</h3>
+                    <span class="badge">250+ linhas</span>
+                </div>
+                <p class="module-description">
+                    Entenda os tipos básicos (string, number, boolean, null, undefined) 
+                    e os <strong>perigos da tipagem dinâmica</strong> - aqui você vai 
+                    entender <strong>POR QUE o TypeScript foi criado</strong>.
+                </p>
+                <ul class="module-topics">
+                    <li>✓ Todos os tipos primitivos explicados</li>
+                    <li>✓ Tipagem dinâmica (variável mudando de tipo)</li>
+                    <li>✓ 10+ exemplos de bugs causados por tipos</li>
+                    <li>✓ typeof e suas armadilhas</li>
+                    <li>✓ Conversão automática (coerção de tipos)</li>
+                    <li>✓ Comparação == vs ===</li>
+                </ul>
+                <button onclick="executarModulo('01-tipagem-dinamica.js')" class="btn">
+                    🚀 Executar Módulo 01
+                </button>
+            </div>
+
+            <div class="module-card">
+                <div class="module-header">
+                    <span class="module-number">02</span>
+                    <h3>Objetos e Arrays (Estruturas de Dados)</h3>
+                    <span class="badge">300+ linhas</span>
+                </div>
+                <p class="module-description">
+                    Domine as estruturas de dados fundamentais: como criar, acessar e 
+                    manipular objetos e arrays de forma moderna.
+                </p>
+                <ul class="module-topics">
+                    <li>✓ Criação de objetos e arrays (literal e construtor)</li>
+                    <li>✓ Acesso a propriedades e índices</li>
+                    <li>✓ Destructuring ES6+</li>
+                    <li>✓ Spread operator (...)</li>
+                    <li>✓ Métodos úteis (Object.keys, entries, values)</li>
+                    <li>✓ JSON.parse e JSON.stringify</li>
+                </ul>
+                <button onclick="executarModulo('02-objetos-arrays.js')" class="btn">
+                    🚀 Executar Módulo 02
+                </button>
+            </div>
+
+            <div class="module-card critical">
+                <div class="module-header">
+                    <span class="module-number">03</span>
+                    <h3>Valor vs Referência ⚠️ CRÍTICO</h3>
+                    <span class="badge badge-critical">350+ linhas</span>
+                </div>
+                <p class="module-description">
+                    <strong>O conceito MAIS importante!</strong> Entenda a diferença entre 
+                    tipos por valor e por referência. <strong>Este é o conceito que causa 
+                    mais bugs em JavaScript.</strong>
+                </p>
+                <ul class="module-topics">
+                    <li>✓ Diferença fundamental: valor vs referência</li>
+                    <li>✓ Mutabilidade e imutabilidade</li>
+                    <li>✓ Cópia superficial vs profunda (shallow vs deep copy)</li>
+                    <li>✓ 15+ exemplos de bugs em produção</li>
+                    <li>✓ Por que isso é VITAL para TypeScript</li>
+                    <li>✓ Como evitar mutações acidentais</li>
+                </ul>
+                <button onclick="executarModulo('03-valor-vs-referencia.js')" class="btn btn-critical">
+                    🔥 Executar Módulo 03 (ESSENCIAL)
+                </button>
+            </div>
+
+            <div class="module-card">
+                <div class="module-header">
+                    <span class="module-number">04</span>
+                    <h3>Funções Modernas (ES6+)</h3>
+                    <span class="badge">400+ linhas</span>
+                </div>
+                <p class="module-description">
+                    Domine as funções modernas do JavaScript: arrow functions, parâmetros 
+                    avançados, retornos e o comportamento do <code>this</code>.
+                </p>
+                <ul class="module-topics">
+                    <li>✓ Arrow Functions vs Functions tradicionais</li>
+                    <li>✓ Comportamento do this em cada tipo</li>
+                    <li>✓ Parâmetros: default, rest, destructuring</li>
+                    <li>✓ Retorno implícito vs explícito</li>
+                    <li>✓ Callbacks e Higher Order Functions</li>
+                    <li>✓ Closures explicados</li>
+                </ul>
+                <button onclick="executarModulo('04-funcoes-modernas.js')" class="btn">
+                    🚀 Executar Módulo 04
+                </button>
+            </div>
+
+            <div class="module-card featured">
+                <div class="module-header">
+                    <span class="module-number">05</span>
+                    <h3>Manipulação de Arrays (ES6+) 🌟</h3>
+                    <span class="badge badge-featured">450+ linhas</span>
+                </div>
+                <p class="module-description">
+                    <strong>Módulo essencial!</strong> Aprenda programação funcional com os 
+                    métodos que você usará TODOS OS DIAS: map, filter, reduce, find e muito mais.
+                </p>
+                <ul class="module-topics">
+                    <li>✓ map() - Transformar arrays</li>
+                    <li>✓ filter() - Filtrar dados</li>
+                    <li>✓ reduce() - Agregações complexas</li>
+                    <li>✓ find() / findIndex() - Buscar elementos</li>
+                    <li>✓ every() / some() - Validações</li>
+                    <li>✓ sort() - Ordenação</li>
+                    <li>✓ Chaining - Combinando métodos</li>
+                    <li>✓ Comparação: imperativo vs funcional</li>
+                </ul>
+                <button onclick="executarModulo('05-metodos-arrays.js')" class="btn btn-featured">
+                    ⭐ Executar Módulo 05 (FUNDAMENTAL)
+                </button>
+            </div>
+
+            <div class="module-card">
+                <div class="module-header">
+                    <span class="module-number">06</span>
+                    <h3>Assincronicidade (Promises e Async/Await)</h3>
+                    <span class="badge">400+ linhas</span>
+                </div>
+                <p class="module-description">
+                    Domine o JavaScript assíncrono: entenda o Event Loop, Promises, 
+                    async/await e como lidar com operações que levam tempo.
+                </p>
+                <ul class="module-topics">
+                    <li>✓ Event Loop explicado</li>
+                    <li>✓ Callbacks e Callback Hell</li>
+                    <li>✓ Promises (then, catch, finally)</li>
+                    <li>✓ async/await moderno</li>
+                    <li>✓ Tratamento de erros (try/catch)</li>
+                    <li>✓ Promise.all, Promise.race</li>
+                    <li>✓ Fetch API - Requisições HTTP</li>
+                    <li>✓ Exemplos práticos com APIs reais</li>
+                </ul>
+                <button onclick="executarModulo('06-assincrono.js')" class="btn">
+                    🚀 Executar Módulo 06
+                </button>
+            </div>
+
+            <div class="module-card">
+                <div class="module-header">
+                    <span class="module-number">07</span>
+                    <h3>Módulos ES6 (Import/Export)</h3>
+                    <span class="badge">Sistema Completo</span>
+                </div>
+                <p class="module-description">
+                    Aprenda a organizar código em arquivos separados usando o sistema de 
+                    módulos ES6. <strong>Aplicação prática funcionando!</strong>
+                </p>
+                <ul class="module-topics">
+                    <li>✓ export default vs named exports</li>
+                    <li>✓ import seletivo e renomeação</li>
+                    <li>✓ import * as (namespace)</li>
+                    <li>✓ Organização profissional de código</li>
+                    <li>✓ Separação de responsabilidades</li>
+                    <li>✓ Aplicação real: Sistema de E-commerce</li>
+                </ul>
+                <a href="07-modulos/index.html" class="btn btn-external" target="_blank">
+                    📦 Abrir Aplicação de Módulos
+                </a>
+            </div>
+        </section>
+
+        <section class="summary">
+            <h2>📊 Resumo do Curso</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Módulos Completos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">2500+</div>
+                    <div class="stat-label">Linhas de Código</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Exemplos Práticos</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Exercícios</div>
+                </div>
+            </div>
+
+            <div class="alert alert-success">
+                <strong>🎯 Objetivo Final:</strong> Ao completar este curso, você terá uma 
+                base SÓLIDA em JavaScript e estará 100% preparado para aprender TypeScript 
+                com confiança e entender o PORQUÊ de cada recurso do TS!
+            </div>
+        </section>
+
+        <section class="next-steps">
+            <h2>🚀 Próximos Passos</h2>
+            <ol class="steps-list">
+                <li>
+                    <strong>Execute cada módulo na ordem</strong> - não pule etapas!
+                </li>
+                <li>
+                    <strong>Leia TODOS os comentários</strong> - eles contêm informações valiosas
+                </li>
+                <li>
+                    <strong>Abra o DevTools (F12)</strong> e acompanhe os logs no Console
+                </li>
+                <li>
+                    <strong>Faça os exercícios</strong> ao final de cada módulo
+                </li>
+                <li>
+                    <strong>Experimente modificar os exemplos</strong> - quebre o código e veja o que acontece
+                </li>
+                <li>
+                    <strong>Depois de dominar tudo</strong> - você está pronto para TypeScript! 🎉
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <footer>
+        <p>💙 Curso de Desenvolvimento de Software - SENAI</p>
+        <p>Fundamentos JavaScript para TypeScript - Material Completo</p>
+    </footer>
+
+    <script>
+        function executarModulo(arquivo) {
+            console.log(`\n${'='.repeat(80)}`);
+            console.log(`🚀 EXECUTANDO MÓDULO: ${arquivo}`);
+            console.log(`${'='.repeat(80)}\n`);
+            
+            // Remove script anterior se existir
+            const scriptAnterior = document.getElementById('modulo-ativo');
+            if (scriptAnterior) {
+                scriptAnterior.remove();
+            }
+            
+            // Cria novo script
+            const script = document.createElement('script');
+            script.id = 'modulo-ativo';
+            script.src = arquivo;
+            script.onload = () => {
+                console.log(`\n✅ Módulo ${arquivo} carregado com sucesso!`);
+                console.log(`📊 Verifique os logs acima para ver todo o conteúdo`);
+                console.log(`${'='.repeat(80)}\n`);
+            };
+            script.onerror = () => {
+                console.error(`❌ Erro ao carregar o módulo ${arquivo}`);
+            };
+            
+            document.body.appendChild(script);
+        }
+
+        // Mensagem de boas-vindas
+        console.log(`
+╔════════════════════════════════════════════════════════════════════╗
+║                                                                    ║
+║     🎓  FUNDAMENTOS JAVASCRIPT PARA TYPESCRIPT  🎓                ║
+║                                                                    ║
+║     Bem-vindo ao curso mais completo de preparação para TS!       ║
+║                                                                    ║
+║     📚 7 módulos progressivos                                      ║
+║     💻 2500+ linhas de código comentado                           ║
+║     🎯 100+ exemplos práticos                                      ║
+║     ✨ 50+ exercícios desafio                                      ║
+║                                                                    ║
+║     👉 Clique nos botões para executar cada módulo                ║
+║     👉 Leia TODOS os logs - eles são educativos                   ║
+║                                                                    ║
+╚════════════════════════════════════════════════════════════════════╝
+        `);
+    </script>
+</body>
+</html>

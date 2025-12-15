@@ -1,0 +1,558 @@
+/* ===========================================
+   STYLE.CSS - TRABALHANDO COM IMAGENS EM HTML
+   =========================================== */
+
+/* Reset e configuração base */
+:root {
+    font-size: 62.5%; /* 1rem = 10px */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: #202020;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+/* ===========================================
+   HEADER
+   =========================================== */
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fafafa;
+    text-align: center;
+    padding: 4rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3.6rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+    font-size: 1.8rem;
+    opacity: 0.95;
+}
+
+/* ===========================================
+   MAIN CONTAINER
+   =========================================== */
+
+main {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+/* ===========================================
+   SEÇÕES
+   =========================================== */
+
+section {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+section h2 {
+    font-size: 2.8rem;
+    color: #667eea;
+    margin-bottom: 2rem;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 1rem;
+}
+
+section h3 {
+    font-size: 2rem;
+    color: #764ba2;
+    margin: 2rem 0 1rem 0;
+}
+
+/* Seção de teoria */
+.teoria {
+    border-left: 5px solid #667eea;
+}
+
+/* Seção prática */
+.pratica {
+    border-left: 5px solid #27ae60;
+    background: linear-gradient(to right, #f0fff4 0%, #ffffff 100%);
+}
+
+/* ===========================================
+   EXPLICAÇÕES E TEXTOS
+   =========================================== */
+
+.explicacao {
+    font-size: 1.7rem;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.explicacao strong {
+    color: #667eea;
+    font-weight: 600;
+}
+
+.explicacao code {
+    background: #e7e9fc;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: #764ba2;
+    font-size: 1.5rem;
+}
+
+/* ===========================================
+   BLOCOS DE CÓDIGO
+   =========================================== */
+
+.code-block {
+    display: block;
+    background: #282c34;
+    color: #61dafb;
+    padding: 2rem;
+    border-radius: 8px;
+    margin: 2rem 0;
+    font-family: 'Courier New', monospace;
+    font-size: 1.4rem;
+    overflow-x: auto;
+    white-space: pre;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+code {
+    font-family: 'Courier New', monospace;
+}
+
+/* ===========================================
+   EXEMPLOS
+   =========================================== */
+
+.exemplo {
+    margin: 2rem 0;
+}
+
+.exemplo img {
+    display: block;
+    margin: 2rem auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exemplo img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ===========================================
+   GRID DE IMAGENS
+   =========================================== */
+
+.grid-imagens {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.card-imagem {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-imagem:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-imagem img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.card-imagem p {
+    font-size: 1.4rem;
+    color: #666;
+}
+
+.card-imagem code {
+    background: #e9ecef;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1.3rem;
+}
+
+/* ===========================================
+   FORMATOS DE IMAGEM
+   =========================================== */
+
+.formatos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.formato-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #ffffff 100%);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.formato-card:hover {
+    border-color: #667eea;
+    transform: translateY(-4px);
+}
+
+.formato-card strong {
+    display: block;
+    font-size: 2rem;
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.formato-card p {
+    font-size: 1.4rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.tag {
+    display: inline-block;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: #e74c3c;
+    color: #fff;
+}
+
+.tag.success {
+    background: #27ae60;
+}
+
+.tag.info {
+    background: #3498db;
+}
+
+/* ===========================================
+   FIGURE E FIGCAPTION
+   =========================================== */
+
+figure {
+    margin: 2rem 0;
+    text-align: center;
+}
+
+figure img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+figcaption {
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    color: #666;
+    font-style: italic;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+/* ===========================================
+   GALERIA INTERATIVA
+   =========================================== */
+
+.galeria-container {
+    margin: 3rem 0;
+}
+
+.imagem-principal {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.imagem-principal img {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    transition: filter 0.3s ease;
+}
+
+#descricaoImagem {
+    margin-top: 1.5rem;
+    font-size: 1.8rem;
+    color: #555;
+    font-weight: 500;
+}
+
+/* Miniaturas */
+.miniaturas {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.miniatura {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.miniatura:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
+}
+
+.miniatura.ativa {
+    border-color: #667eea;
+    transform: scale(1.15);
+    box-shadow: 0 4px 16px rgba(102, 126, 234, 0.5);
+}
+
+/* ===========================================
+   BOAS PRÁTICAS
+   =========================================== */
+
+.boas-praticas {
+    background: linear-gradient(135deg, #fff5e6 0%, #ffffff 100%);
+    border-left: 5px solid #f39c12;
+}
+
+.praticas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.pratica-card {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid #f39c12;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pratica-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(243, 156, 18, 0.3);
+}
+
+.pratica-card h3 {
+    font-size: 2rem;
+    color: #f39c12;
+    margin-bottom: 1.5rem;
+}
+
+.pratica-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.pratica-card li {
+    font-size: 1.5rem;
+    color: #555;
+    margin-bottom: 1rem;
+    padding-left: 2.5rem;
+    position: relative;
+}
+
+.pratica-card li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+/* ===========================================
+   DESAFIOS
+   =========================================== */
+
+.desafios {
+    background: linear-gradient(135deg, #fff0f6 0%, #ffffff 100%);
+    border-left: 5px solid #e74c3c;
+}
+
+.desafios h2 {
+    color: #e74c3c;
+    border-bottom-color: #e74c3c;
+}
+
+.desafios-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.desafio {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px dashed #e74c3c;
+    transition: all 0.3s ease;
+}
+
+.desafio:hover {
+    border-style: solid;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(231, 76, 60, 0.2);
+}
+
+.desafio h3 {
+    font-size: 2rem;
+    color: #e74c3c;
+    margin-bottom: 1rem;
+}
+
+.desafio p {
+    font-size: 1.5rem;
+    color: #666;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+
+footer {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fafafa;
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+}
+
+footer p {
+    font-size: 1.6rem;
+    margin: 0.5rem 0;
+}
+
+/* ===========================================
+   RESPONSIVIDADE
+   =========================================== */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.8rem;
+    }
+    
+    header p {
+        font-size: 1.6rem;
+    }
+    
+    section {
+        padding: 2rem;
+    }
+    
+    section h2 {
+        font-size: 2.4rem;
+    }
+    
+    .miniaturas {
+        gap: 1rem;
+    }
+    
+    .miniatura {
+        width: 120px;
+        height: 80px;
+    }
+    
+    .praticas-grid,
+    .formatos-grid,
+    .desafios-lista {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 2.4rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+    
+    .miniatura {
+        width: 100px;
+        height: 70px;
+    }
+}
+
+/* ===========================================
+   CLASSES UTILITÁRIAS
+   =========================================== */
+
+/* Classe para aplicar filtro grayscale (pode ser usada nos desafios) */
+.grayscale {
+    filter: grayscale(100%);
+}
+
+/* Classe para zoom em imagens */
+.zoom {
+    transform: scale(1.5);
+}
+
+/* Animação de fade in */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-in-out;
+}

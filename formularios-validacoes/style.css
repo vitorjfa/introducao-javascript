@@ -1,0 +1,679 @@
+/* ===========================================
+   FORMULÁRIOS E VALIDAÇÕES - STYLE.CSS
+   =========================================== */
+
+/* Reset e configuração base */
+:root {
+    font-size: 62.5%; /* 1rem = 10px */
+    
+    /* Cores do sistema */
+    --cor-primaria: #667eea;
+    --cor-secundaria: #764ba2;
+    --cor-sucesso: #27ae60;
+    --cor-erro: #e74c3c;
+    --cor-aviso: #f39c12;
+    --cor-texto: #202020;
+    --cor-texto-claro: #666;
+    --cor-fundo: #f5f7fa;
+    --cor-branco: #ffffff;
+    --cor-cinza-claro: #f8f9fa;
+    --cor-cinza: #e9ecef;
+    --cor-borda: #dee2e6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+}
+
+/* ===========================================
+   HEADER
+   =========================================== */
+
+header {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: 4rem 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 3.6rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+header p {
+    font-size: 1.8rem;
+    opacity: 0.95;
+}
+
+/* ===========================================
+   MAIN CONTAINER
+   =========================================== */
+
+main {
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 0 2rem;
+}
+
+/* ===========================================
+   SEÇÕES
+   =========================================== */
+
+section {
+    background: var(--cor-branco);
+    border-radius: 12px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+section h2 {
+    font-size: 2.8rem;
+    color: var(--cor-primaria);
+    margin-bottom: 2rem;
+    border-bottom: 3px solid var(--cor-primaria);
+    padding-bottom: 1rem;
+}
+
+section h3 {
+    font-size: 2rem;
+    color: var(--cor-secundaria);
+    margin: 2rem 0 1rem 0;
+}
+
+/* Seção de teoria */
+.teoria {
+    border-left: 5px solid var(--cor-primaria);
+}
+
+/* Seção prática */
+.pratica {
+    border-left: 5px solid var(--cor-sucesso);
+    background: linear-gradient(to right, #f0fff4 0%, var(--cor-branco) 100%);
+}
+
+/* ===========================================
+   EXPLICAÇÕES
+   =========================================== */
+
+.explicacao {
+    font-size: 1.7rem;
+    line-height: 1.8;
+    color: var(--cor-texto-claro);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: var(--cor-cinza-claro);
+    border-radius: 8px;
+    border-left: 4px solid var(--cor-primaria);
+}
+
+.explicacao strong {
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+.explicacao code {
+    background: #e7e9fc;
+    padding: 0.2rem 0.6rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: var(--cor-secundaria);
+    font-size: 1.5rem;
+}
+
+/* ===========================================
+   TIPOS DE VALIDAÇÃO
+   =========================================== */
+
+.exemplo-teoria {
+    margin: 2rem 0;
+}
+
+.tipos-validacao {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.tipo-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, var(--cor-branco) 100%);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid var(--cor-cinza);
+    transition: all 0.3s ease;
+}
+
+.tipo-card:hover {
+    border-color: var(--cor-primaria);
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.tipo-card h4 {
+    font-size: 1.8rem;
+    color: var(--cor-primaria);
+    margin-bottom: 1rem;
+}
+
+.tipo-card p {
+    font-size: 1.5rem;
+    color: var(--cor-texto-claro);
+}
+
+.tipo-card code {
+    background: #e9ecef;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 1.3rem;
+}
+
+/* ===========================================
+   FORMULÁRIO
+   =========================================== */
+
+form {
+    margin: 3rem 0;
+}
+
+/* Campo do formulário */
+.campo-formulario {
+    margin-bottom: 2.5rem;
+    position: relative;
+}
+
+/* Label */
+.campo-formulario label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--cor-texto);
+    margin-bottom: 0.8rem;
+}
+
+.campo-formulario label .icone {
+    margin-right: 0.5rem;
+}
+
+/* Inputs e Select */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 1.2rem 1.5rem;
+    font-size: 1.6rem;
+    border: 2px solid var(--cor-borda);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background: var(--cor-branco);
+    font-family: inherit;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Estado válido */
+input.valido,
+select.valido {
+    border-color: var(--cor-sucesso);
+    background: #f0fff4;
+}
+
+/* Estado inválido */
+input.invalido,
+select.invalido {
+    border-color: var(--cor-erro);
+    background: #fff5f5;
+    animation: shake 0.3s ease;
+}
+
+/* Animação de shake para campos inválidos */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+/* Placeholder */
+input::placeholder {
+    color: #adb5bd;
+}
+
+/* Select */
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1.5rem center;
+    padding-right: 4rem;
+}
+
+/* ===========================================
+   MENSAGENS DE ERRO E SUCESSO
+   =========================================== */
+
+.mensagem-erro,
+.mensagem-sucesso {
+    display: none;
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.mensagem-erro {
+    color: var(--cor-erro);
+    background: #fff5f5;
+    border-left: 3px solid var(--cor-erro);
+}
+
+.mensagem-sucesso {
+    color: var(--cor-sucesso);
+    background: #f0fff4;
+    border-left: 3px solid var(--cor-sucesso);
+}
+
+/* ===========================================
+   DICA DE SENHA
+   =========================================== */
+
+.dica-senha {
+    font-size: 1.3rem;
+    color: var(--cor-texto-claro);
+    margin-top: 0.5rem;
+    padding: 0.8rem 1rem;
+    background: var(--cor-cinza-claro);
+    border-radius: 4px;
+    border-left: 3px solid var(--cor-aviso);
+}
+
+/* ===========================================
+   CHECKBOX
+   =========================================== */
+
+.checkbox-campo {
+    margin: 2rem 0;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+input[type="checkbox"] {
+    width: 2rem;
+    height: 2rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.checkbox-label span {
+    font-size: 1.5rem;
+    color: var(--cor-texto-claro);
+}
+
+/* ===========================================
+   BOTÕES
+   =========================================== */
+
+.botoes-formulario {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+button {
+    padding: 1.5rem 3rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+button[type="submit"] {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+    color: var(--cor-branco);
+    flex: 1;
+    min-width: 200px;
+}
+
+button[type="submit"]:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+button[type="submit"]:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+button[type="reset"] {
+    background: var(--cor-cinza);
+    color: var(--cor-texto);
+}
+
+button[type="reset"]:hover {
+    background: var(--cor-borda);
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ===========================================
+   RESULTADO DO ENVIO
+   =========================================== */
+
+.resultado-envio {
+    margin-top: 3rem;
+    padding: 2.5rem;
+    background: linear-gradient(135deg, #d4edda 0%, var(--cor-branco) 100%);
+    border: 2px solid var(--cor-sucesso);
+    border-radius: 12px;
+    animation: slideIn 0.5s ease;
+}
+
+.resultado-envio.oculto {
+    display: none;
+}
+
+.resultado-envio h3 {
+    color: var(--cor-sucesso);
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+}
+
+#dadosEnviados p {
+    font-size: 1.6rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    background: var(--cor-branco);
+    border-radius: 6px;
+    border-left: 3px solid var(--cor-sucesso);
+}
+
+#dadosEnviados strong {
+    color: var(--cor-primaria);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================================
+   CONCEITOS
+   =========================================== */
+
+.conceitos {
+    background: linear-gradient(to right, #fff5e6 0%, var(--cor-branco) 100%);
+    border-left: 5px solid var(--cor-aviso);
+}
+
+.conceitos h2 {
+    color: var(--cor-aviso);
+    border-bottom-color: var(--cor-aviso);
+}
+
+.conceitos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.conceito-card {
+    background: var(--cor-branco);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px solid var(--cor-aviso);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.conceito-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(243, 156, 18, 0.3);
+}
+
+.conceito-card h3 {
+    font-size: 2rem;
+    color: var(--cor-aviso);
+    margin-bottom: 1.5rem;
+}
+
+.conceito-card ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.conceito-card li {
+    font-size: 1.5rem;
+    color: var(--cor-texto-claro);
+    margin-bottom: 0.8rem;
+    padding-left: 2.5rem;
+    position: relative;
+}
+
+.conceito-card li::before {
+    content: "▸";
+    position: absolute;
+    left: 0;
+    color: var(--cor-aviso);
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.conceito-card code {
+    background: #fff5e6;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    color: var(--cor-aviso);
+    font-size: 1.3rem;
+}
+
+/* ===========================================
+   DESAFIOS
+   =========================================== */
+
+.desafios {
+    background: linear-gradient(135deg, #fff0f6 0%, var(--cor-branco) 100%);
+    border-left: 5px solid var(--cor-erro);
+}
+
+.desafios h2 {
+    color: var(--cor-erro);
+    border-bottom-color: var(--cor-erro);
+}
+
+.desafios-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.desafio {
+    background: var(--cor-branco);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 2px dashed var(--cor-erro);
+    transition: all 0.3s ease;
+}
+
+.desafio:hover {
+    border-style: solid;
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(231, 76, 60, 0.2);
+}
+
+.desafio h3 {
+    font-size: 1.8rem;
+    color: var(--cor-erro);
+    margin-bottom: 1rem;
+}
+
+.desafio p {
+    font-size: 1.5rem;
+    color: var(--cor-texto-claro);
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+
+footer {
+    background: linear-gradient(135deg, var(--cor-primaria) 0%, var(--cor-secundaria) 100%);
+    color: var(--cor-branco);
+    text-align: center;
+    padding: 3rem 2rem;
+    margin-top: 4rem;
+}
+
+footer p {
+    font-size: 1.6rem;
+    margin: 0.5rem 0;
+}
+
+/* ===========================================
+   RESPONSIVIDADE
+   =========================================== */
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.8rem;
+    }
+    
+    header p {
+        font-size: 1.6rem;
+    }
+    
+    section {
+        padding: 2rem;
+    }
+    
+    section h2 {
+        font-size: 2.4rem;
+    }
+    
+    .botoes-formulario {
+        flex-direction: column;
+    }
+    
+    button {
+        width: 100%;
+    }
+    
+    .tipos-validacao,
+    .conceitos-grid,
+    .desafios-lista {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        font-size: 55%; /* Reduz tamanho base para telas pequenas */
+    }
+    
+    header h1 {
+        font-size: 2.4rem;
+    }
+    
+    section {
+        padding: 1.5rem;
+    }
+}
+
+/* ===========================================
+   ACESSIBILIDADE
+   =========================================== */
+
+/* Foco visível para navegação por teclado */
+*:focus-visible {
+    outline: 3px solid var(--cor-primaria);
+    outline-offset: 2px;
+}
+
+/* Reduz animações para quem prefere movimento reduzido */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ===========================================
+   UTILIDADES
+   =========================================== */
+
+.oculto {
+    display: none;
+}
+
+/* Indicador de carregamento (pode ser usado para requisições) */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.loading::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 3px solid var(--cor-primaria);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

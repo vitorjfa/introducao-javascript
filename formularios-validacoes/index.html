@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários e Validações com JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📋 Formulários e Validações em JavaScript</h1>
+        <p>Aprenda a criar formulários interativos e validar dados do usuário</p>
+    </header>
+
+    <main>
+        <!-- 
+            ===========================================
+            SEÇÃO 1: TEORIA - FORMULÁRIOS HTML
+            ===========================================
+            
+            FORMULÁRIOS são elementos HTML que permitem coletar dados do usuário.
+            
+            PRINCIPAIS ELEMENTOS:
+            - <form>: Container principal do formulário
+            - <input>: Campos de entrada (text, email, password, number, date, etc.)
+            - <textarea>: Campo de texto multilinha
+            - <select>: Lista suspensa de opções
+            - <button>: Botão de ação (submit, reset, button)
+            - <label>: Rótulo para os campos (acessibilidade)
+            
+            ATRIBUTOS IMPORTANTES DO <input>:
+            - type: Define o tipo de entrada
+            - name: Nome do campo (usado para envio de dados)
+            - id: Identificador único
+            - placeholder: Texto de exemplo
+            - required: Campo obrigatório
+            - minlength/maxlength: Tamanho mínimo/máximo
+            - pattern: Padrão regex para validação
+            - disabled: Desabilita o campo
+            - readonly: Apenas leitura
+        -->
+        <section class="teoria">
+            <h2>1. Introdução aos Formulários</h2>
+            <p class="explicacao">
+                Formulários são essenciais para interação com o usuário. 
+                Com JavaScript, podemos validar dados <strong>antes</strong> de enviar para o servidor,
+                proporcionando feedback imediato e melhorando a experiência do usuário.
+            </p>
+
+            <div class="exemplo-teoria">
+                <h3>Tipos de Validação:</h3>
+                <div class="tipos-validacao">
+                    <div class="tipo-card">
+                        <h4>✅ Validação HTML5</h4>
+                        <p>Atributos nativos: <code>required</code>, <code>pattern</code>, <code>min</code>, <code>max</code></p>
+                    </div>
+                    <div class="tipo-card">
+                        <h4>🔧 Validação JavaScript</h4>
+                        <p>Validações personalizadas: CPF, CNPJ, cartão de crédito, senha forte, etc.</p>
+                    </div>
+                    <div class="tipo-card">
+                        <h4>🌐 Validação Backend</h4>
+                        <p>Sempre validar no servidor (segurança)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ===========================================
+            SEÇÃO 2: FORMULÁRIO PRÁTICO
+            ===========================================
+            
+            Vamos criar um formulário de cadastro completo com diversos
+            tipos de campos e validações personalizadas em JavaScript.
+            
+            O formulário terá:
+            - Nome completo (mínimo 3 caracteres)
+            - Email (formato válido)
+            - Senha (mínimo 8 caracteres, com letra maiúscula e número)
+            - Confirmação de senha (deve ser igual à senha)
+            - Data de nascimento (maior de 18 anos)
+            - CPF (validação de CPF real)
+            - Telefone (formato brasileiro)
+            - Estado (select)
+            - Termos de uso (checkbox obrigatório)
+        -->
+        <section class="pratica">
+            <h2>2. 🎯 Formulário de Cadastro Completo</h2>
+            <p class="explicacao">
+                Preencha o formulário abaixo. As validações ocorrem em tempo real!
+            </p>
+
+            <form id="formularioCadastro" novalidate>
+                <!-- novalidate desabilita validação HTML5 padrão para usarmos JavaScript -->
+
+                <!-- Nome Completo -->
+                <div class="campo-formulario">
+                    <label for="nome">
+                        <span class="icone">👤</span>
+                        Nome Completo *
+                    </label>
+                    <input 
+                        type="text" 
+                        id="nome" 
+                        name="nome"
+                        placeholder="Digite seu nome completo"
+                        required
+                    >
+                    <span class="mensagem-erro" id="erro-nome"></span>
+                    <span class="mensagem-sucesso" id="sucesso-nome">✓ Nome válido</span>
+                </div>
+
+                <!-- Email -->
+                <div class="campo-formulario">
+                    <label for="email">
+                        <span class="icone">📧</span>
+                        Email *
+                    </label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email"
+                        placeholder="seu.email@exemplo.com"
+                        required
+                    >
+                    <span class="mensagem-erro" id="erro-email"></span>
+                    <span class="mensagem-sucesso" id="sucesso-email">✓ Email válido</span>
+                </div>
+
+                <!-- Senha -->
+                <div class="campo-formulario">
+                    <label for="senha">
+                        <span class="icone">🔒</span>
+                        Senha *
+                    </label>
+                    <input 
+                        type="password" 
+                        id="senha" 
+                        name="senha"
+                        placeholder="Mínimo 8 caracteres"
+                        required
+                    >
+                    <span class="mensagem-erro" id="erro-senha"></span>
+                    <span class="mensagem-sucesso" id="sucesso-senha">✓ Senha forte</span>
+                    <div class="dica-senha">
+                        Senha deve conter: mínimo 8 caracteres, 1 letra maiúscula, 1 número
+                    </div>
+                </div>
+
+                <!-- Confirmar Senha -->
+                <div class="campo-formulario">
+                    <label for="confirmarSenha">
+                        <span class="icone">🔒</span>
+                        Confirmar Senha *
+                    </label>
+                    <input 
+                        type="password" 
+                        id="confirmarSenha" 
+                        name="confirmarSenha"
+                        placeholder="Digite a senha novamente"
+                        required
+                    >
+                    <span class="mensagem-erro" id="erro-confirmarSenha"></span>
+                    <span class="mensagem-sucesso" id="sucesso-confirmarSenha">✓ Senhas coincidem</span>
+                </div>
+
+                <!-- Data de Nascimento -->
+                <div class="campo-formulario">
+                    <label for="dataNascimento">
+                        <span class="icone">📅</span>
+                        Data de Nascimento *
+                    </label>
+                    <input 
+                        type="date" 
+                        id="dataNascimento" 
+                        name="dataNascimento"
+                        required
+                    >
+                    <span class="mensagem-erro" id="erro-dataNascimento"></span>
+                    <span class="mensagem-sucesso" id="sucesso-dataNascimento">✓ Idade válida</span>
+                </div>
+
+                <!-- CPF -->
+                <div class="campo-formulario">
+                    <label for="cpf">
+                        <span class="icone">🆔</span>
+                        CPF *
+                    </label>
+                    <input 
+                        type="text" 
+                        id="cpf" 
+                        name="cpf"
+                        placeholder="000.000.000-00"
+                        maxlength="14"
+                        required
+                    >
+                    <span class="mensagem-erro" id="erro-cpf"></span>
+                    <span class="mensagem-sucesso" id="sucesso-cpf">✓ CPF válido</span>
+                </div>
+
+                <!-- Telefone -->
+                <div class="campo-formulario">
+                    <label for="telefone">
+                        <span class="icone">📱</span>
+                        Telefone *
+                    </label>
+                    <input 
+                        type="tel" 
+                        id="telefone" 
+                        name="telefone"
+                        placeholder="(00) 00000-0000"
+                        maxlength="15"
+                        required
+                    >
+                    <span class="mensagem-erro" id="erro-telefone"></span>
+                    <span class="mensagem-sucesso" id="sucesso-telefone">✓ Telefone válido</span>
+                </div>
+
+                <!-- Estado -->
+                <div class="campo-formulario">
+                    <label for="estado">
+                        <span class="icone">🗺️</span>
+                        Estado *
+                    </label>
+                    <select id="estado" name="estado" required>
+                        <option value="">Selecione seu estado</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                    <span class="mensagem-erro" id="erro-estado"></span>
+                    <span class="mensagem-sucesso" id="sucesso-estado">✓ Estado selecionado</span>
+                </div>
+
+                <!-- Termos de Uso -->
+                <div class="campo-formulario checkbox-campo">
+                    <label for="termos" class="checkbox-label">
+                        <input 
+                            type="checkbox" 
+                            id="termos" 
+                            name="termos"
+                            required
+                        >
+                        <span>Aceito os termos de uso e política de privacidade *</span>
+                    </label>
+                    <span class="mensagem-erro" id="erro-termos"></span>
+                </div>
+
+                <!-- Botões -->
+                <div class="botoes-formulario">
+                    <button type="submit" id="btnEnviar">
+                        ✉️ Enviar Cadastro
+                    </button>
+                    <button type="reset" id="btnLimpar">
+                        🔄 Limpar Formulário
+                    </button>
+                </div>
+            </form>
+
+            <!-- Resultado do envio -->
+            <div id="resultadoEnvio" class="resultado-envio oculto">
+                <h3>✅ Cadastro Realizado com Sucesso!</h3>
+                <div id="dadosEnviados"></div>
+            </div>
+        </section>
+
+        <!-- 
+            ===========================================
+            SEÇÃO 3: CONCEITOS IMPORTANTES
+            ===========================================
+        -->
+        <section class="teoria conceitos">
+            <h2>3. 📚 Conceitos JavaScript para Validação</h2>
+
+            <div class="conceitos-grid">
+                <div class="conceito-card">
+                    <h3>🎯 Eventos de Formulário</h3>
+                    <ul>
+                        <li><code>submit</code> - Quando o formulário é enviado</li>
+                        <li><code>input</code> - A cada caractere digitado</li>
+                        <li><code>change</code> - Quando o valor muda</li>
+                        <li><code>blur</code> - Quando perde o foco</li>
+                        <li><code>focus</code> - Quando recebe o foco</li>
+                    </ul>
+                </div>
+
+                <div class="conceito-card">
+                    <h3>🔍 Métodos de Validação</h3>
+                    <ul>
+                        <li><code>.value</code> - Obtém o valor do campo</li>
+                        <li><code>.trim()</code> - Remove espaços extras</li>
+                        <li><code>.length</code> - Tamanho da string</li>
+                        <li><code>.match()</code> - Valida com regex</li>
+                        <li><code>.test()</code> - Testa padrão regex</li>
+                    </ul>
+                </div>
+
+                <div class="conceito-card">
+                    <h3>✨ Manipulação do DOM</h3>
+                    <ul>
+                        <li><code>.classList.add()</code> - Adiciona classe</li>
+                        <li><code>.classList.remove()</code> - Remove classe</li>
+                        <li><code>.textContent</code> - Altera texto</li>
+                        <li><code>.disabled</code> - Desabilita elemento</li>
+                        <li><code>.preventDefault()</code> - Previne ação padrão</li>
+                    </ul>
+                </div>
+
+                <div class="conceito-card">
+                    <h3>📐 Regex (Expressões Regulares)</h3>
+                    <ul>
+                        <li><code>/^[A-Za-z]+$/</code> - Apenas letras</li>
+                        <li><code>/^\d+$/</code> - Apenas números</li>
+                        <li><code>/^.{8,}$/</code> - Mínimo 8 caracteres</li>
+                        <li><code>/[A-Z]/</code> - Contém maiúscula</li>
+                        <li><code>/[\d]/</code> - Contém número</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ===========================================
+            SEÇÃO 4: DESAFIOS
+            ===========================================
+        -->
+        <section class="desafios">
+            <h2>🎯 Desafios Práticos</h2>
+            
+            <div class="desafios-lista">
+                <div class="desafio">
+                    <h3>Desafio 1 - Validação de Email Empresarial</h3>
+                    <p>Adicione uma validação que aceite apenas emails corporativos (que não sejam @gmail, @hotmail, @outlook)</p>
+                </div>
+
+                <div class="desafio">
+                    <h3>Desafio 2 - Força da Senha Visual</h3>
+                    <p>Crie um indicador visual de força da senha (fraca, média, forte) com cores diferentes</p>
+                </div>
+
+                <div class="desafio">
+                    <h3>Desafio 3 - Auto-Complete CEP</h3>
+                    <p>Adicione um campo de CEP que busque automaticamente o endereço usando a API ViaCEP</p>
+                </div>
+
+                <div class="desafio">
+                    <h3>Desafio 4 - Contador de Caracteres</h3>
+                    <p>Adicione um campo "Sobre você" (textarea) com contador de caracteres (máximo 500)</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>💙 Curso de Desenvolvimento de Software - SENAI</p>
+        <p>Transforme seu futuro através da tecnologia</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

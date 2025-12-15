@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabalhando com Imagens em HTML</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>🖼️ Trabalhando com Imagens em HTML</h1>
+        <p>Aprenda a utilizar imagens de forma eficiente e acessível</p>
+    </header>
+
+    <main>
+        <!-- 
+            ===========================================
+            SEÇÃO 1: INTRODUÇÃO À TAG <img>
+            ===========================================
+            
+            A tag <img> é usada para inserir imagens em páginas HTML.
+            É uma tag auto-fechada (não possui tag de fechamento).
+            
+            ATRIBUTOS ESSENCIAIS:
+            - src: Define o caminho da imagem (obrigatório)
+            - alt: Texto alternativo para acessibilidade (obrigatório)
+            - width: Largura da imagem em pixels
+            - height: Altura da imagem em pixels
+            - title: Texto que aparece ao passar o mouse sobre a imagem
+        -->
+        <section class="teoria">
+            <h2>1. Tag &lt;img&gt; Básica</h2>
+            <p class="explicacao">
+                A tag <code>&lt;img&gt;</code> é fundamental para exibir imagens. 
+                O atributo <strong>src</strong> define o caminho da imagem, 
+                e o <strong>alt</strong> fornece uma descrição para acessibilidade.
+            </p>
+
+            <div class="exemplo">
+                <h3>Exemplo Básico:</h3>
+                <!-- Imagem básica com atributos essenciais -->
+                <img 
+                    src="https://via.placeholder.com/300x200/4A90E2/ffffff?text=Imagem+Exemplo" 
+                    alt="Exemplo de imagem placeholder azul com texto"
+                    title="Esta é uma imagem de exemplo"
+                >
+                <code class="code-block">
+                    &lt;img src="caminho/da/imagem.jpg" alt="Descrição da imagem"&gt;
+                </code>
+            </div>
+        </section>
+
+        <!-- 
+            ===========================================
+            SEÇÃO 2: CAMINHOS DE IMAGENS
+            ===========================================
+            
+            CAMINHO RELATIVO:
+            - ./assets/imagem.jpg → mesma pasta ou subpasta
+            - ../imagem.jpg → pasta superior
+            
+            CAMINHO ABSOLUTO:
+            - /assets/imagem.jpg → desde a raiz do site
+            - https://site.com/imagem.jpg → URL completa
+            
+            BOAS PRÁTICAS:
+            ✅ Use caminhos relativos para imagens do projeto
+            ✅ Use URLs completas para imagens externas
+            ✅ Organize imagens em uma pasta (ex: assets/, images/)
+        -->
+        <section class="teoria">
+            <h2>2. Caminhos de Imagens</h2>
+            <p class="explicacao">
+                Você pode usar <strong>caminhos relativos</strong> (imagens no seu projeto) 
+                ou <strong>URLs completas</strong> (imagens externas).
+            </p>
+
+            <div class="exemplo">
+                <h3>Diferentes Tipos de Caminhos:</h3>
+                <div class="grid-imagens">
+                    <!-- Caminho relativo (pasta assets) -->
+                    <div class="card-imagem">
+                        <img 
+                            src="https://via.placeholder.com/250x150/E74C3C/ffffff?text=Caminho+Relativo" 
+                            alt="Exemplo de caminho relativo"
+                        >
+                        <p><code>./assets/imagem.jpg</code></p>
+                    </div>
+
+                    <!-- URL completa (externa) -->
+                    <div class="card-imagem">
+                        <img 
+                            src="https://via.placeholder.com/250x150/27AE60/ffffff?text=URL+Completa" 
+                            alt="Exemplo de URL completa"
+                        >
+                        <p><code>https://site.com/imagem.jpg</code></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ===========================================
+            SEÇÃO 3: FORMATOS DE IMAGEM
+            ===========================================
+            
+            .JPG / .JPEG
+            - Melhor para: Fotografias e imagens com muitas cores
+            - Compressão: Com perda de qualidade
+            - Transparência: NÃO suporta
+            
+            .PNG
+            - Melhor para: Logos, ícones, imagens com transparência
+            - Compressão: Sem perda de qualidade
+            - Transparência: Suporta
+            
+            .WEBP
+            - Melhor para: Qualquer tipo (moderno e otimizado)
+            - Compressão: Superior ao JPG e PNG
+            - Transparência: Suporta
+            - Navegadores: Modernos (Chrome, Firefox, Edge, Safari 14+)
+            
+            .SVG
+            - Melhor para: Ícones, logos, ilustrações vetoriais
+            - Formato: Vetorial (não perde qualidade ao redimensionar)
+            - Tamanho: Geralmente pequeno
+            
+            .GIF
+            - Melhor para: Animações simples
+            - Cores: Limitado a 256 cores
+            - Transparência: Suporta
+        -->
+        <section class="teoria">
+            <h2>3. Formatos de Imagem</h2>
+            <p class="explicacao">
+                Cada formato de imagem tem suas características e usos ideais:
+            </p>
+
+            <div class="exemplo">
+                <div class="formatos-grid">
+                    <div class="formato-card">
+                        <strong>.JPG / .JPEG</strong>
+                        <p>Fotografias e imagens com muitas cores</p>
+                        <span class="tag">Sem transparência</span>
+                    </div>
+                    <div class="formato-card">
+                        <strong>.PNG</strong>
+                        <p>Logos, ícones, gráficos</p>
+                        <span class="tag success">Com transparência</span>
+                    </div>
+                    <div class="formato-card">
+                        <strong>.WEBP</strong>
+                        <p>Formato moderno e otimizado</p>
+                        <span class="tag success">Com transparência</span>
+                    </div>
+                    <div class="formato-card">
+                        <strong>.SVG</strong>
+                        <p>Ícones e ilustrações vetoriais</p>
+                        <span class="tag info">Vetorial</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ===========================================
+            SEÇÃO 4: FIGURE E FIGCAPTION
+            ===========================================
+            
+            <figure> e <figcaption> são tags semânticas HTML5 para:
+            - Agrupar imagens com suas legendas
+            - Melhorar acessibilidade e SEO
+            - Deixar o código mais organizado e significativo
+            
+            ESTRUTURA:
+            <figure>
+                <img src="..." alt="...">
+                <figcaption>Legenda da imagem</figcaption>
+            </figure>
+        -->
+        <section class="teoria">
+            <h2>4. Semântica: &lt;figure&gt; e &lt;figcaption&gt;</h2>
+            <p class="explicacao">
+                Use <code>&lt;figure&gt;</code> e <code>&lt;figcaption&gt;</code> 
+                para adicionar legendas semânticas às imagens.
+            </p>
+
+            <div class="exemplo">
+                <figure>
+                    <img 
+                        src="https://via.placeholder.com/400x250/9B59B6/ffffff?text=Imagem+com+Legenda" 
+                        alt="Paisagem montanhosa ao pôr do sol"
+                    >
+                    <figcaption>Figura 1: Exemplo de imagem com legenda usando figure e figcaption</figcaption>
+                </figure>
+
+                <code class="code-block">
+&lt;figure&gt;
+    &lt;img src="paisagem.jpg" alt="Descrição"&gt;
+    &lt;figcaption&gt;Legenda da imagem&lt;/figcaption&gt;
+&lt;/figure&gt;
+                </code>
+            </div>
+        </section>
+
+        <!-- 
+            ===========================================
+            SEÇÃO 5: GALERIA INTERATIVA
+            ===========================================
+            
+            Vamos criar uma galeria onde você pode:
+            - Clicar nas imagens para trocar a imagem principal
+            - Ver informações sobre cada imagem
+            - Aplicar efeitos visuais com CSS
+            
+            Isso demonstra como JavaScript pode manipular imagens dinamicamente!
+        -->
+        <section class="pratica">
+            <h2>5. 🎨 Galeria Interativa</h2>
+            <p class="explicacao">
+                Clique nas miniaturas abaixo para trocar a imagem principal:
+            </p>
+
+            <div class="galeria-container">
+                <!-- Imagem principal -->
+                <div class="imagem-principal">
+                    <img 
+                        id="imagemPrincipal" 
+                        src="https://via.placeholder.com/600x400/3498DB/ffffff?text=Produto+1" 
+                        alt="Produto em destaque"
+                    >
+                    <p id="descricaoImagem">Produto 1 - Clique nas miniaturas para ver mais</p>
+                </div>
+
+                <!-- Miniaturas (thumbnails) -->
+                <div class="miniaturas">
+                    <img 
+                        class="miniatura ativa" 
+                        src="https://via.placeholder.com/150x100/3498DB/ffffff?text=Produto+1" 
+                        alt="Miniatura produto 1"
+                        data-src="https://via.placeholder.com/600x400/3498DB/ffffff?text=Produto+1"
+                        data-descricao="Produto 1 - Smartphone de última geração"
+                    >
+                    <img 
+                        class="miniatura" 
+                        src="https://via.placeholder.com/150x100/E74C3C/ffffff?text=Produto+2" 
+                        alt="Miniatura produto 2"
+                        data-src="https://via.placeholder.com/600x400/E74C3C/ffffff?text=Produto+2"
+                        data-descricao="Produto 2 - Notebook ultra fino e potente"
+                    >
+                    <img 
+                        class="miniatura" 
+                        src="https://via.placeholder.com/150x100/27AE60/ffffff?text=Produto+3" 
+                        alt="Miniatura produto 3"
+                        data-src="https://via.placeholder.com/600x400/27AE60/ffffff?text=Produto+3"
+                        data-descricao="Produto 3 - Fone de ouvido sem fio premium"
+                    >
+                    <img 
+                        class="miniatura" 
+                        src="https://via.placeholder.com/150x100/F39C12/ffffff?text=Produto+4" 
+                        alt="Miniatura produto 4"
+                        data-src="https://via.placeholder.com/600x400/F39C12/ffffff?text=Produto+4"
+                        data-descricao="Produto 4 - Smartwatch com monitor de saúde"
+                    >
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ===========================================
+            SEÇÃO 6: BOAS PRÁTICAS
+            ===========================================
+            
+            ACESSIBILIDADE:
+            ✅ Sempre use o atributo alt
+            ✅ Seja descritivo no texto alternativo
+            ✅ Para imagens decorativas, use alt=""
+            
+            PERFORMANCE:
+            ✅ Otimize o tamanho das imagens antes de usar
+            ✅ Use formatos modernos (WebP)
+            ✅ Considere lazy loading para muitas imagens
+            
+            RESPONSIVIDADE:
+            ✅ Use max-width: 100% para imagens responsivas
+            ✅ Considere usar <picture> para diferentes tamanhos
+            ✅ Use object-fit para controlar o comportamento
+        -->
+        <section class="teoria boas-praticas">
+            <h2>6. ✅ Boas Práticas</h2>
+            
+            <div class="praticas-grid">
+                <div class="pratica-card">
+                    <h3>♿ Acessibilidade</h3>
+                    <ul>
+                        <li>Sempre use o atributo <strong>alt</strong></li>
+                        <li>Seja descritivo no texto alternativo</li>
+                        <li>Para imagens decorativas, use <code>alt=""</code></li>
+                    </ul>
+                </div>
+
+                <div class="pratica-card">
+                    <h3>⚡ Performance</h3>
+                    <ul>
+                        <li>Otimize o tamanho das imagens</li>
+                        <li>Use formatos modernos (WebP)</li>
+                        <li>Considere lazy loading</li>
+                    </ul>
+                </div>
+
+                <div class="pratica-card">
+                    <h3>📱 Responsividade</h3>
+                    <ul>
+                        <li>Use <code>max-width: 100%</code></li>
+                        <li>Considere a tag <code>&lt;picture&gt;</code></li>
+                        <li>Use <code>object-fit</code> no CSS</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- 
+            ===========================================
+            DESAFIOS PRÁTICOS
+            ===========================================
+            
+            DESAFIO 1: Adicione mais 2 imagens à galeria
+            - Use placeholders diferentes
+            - Adicione descrições personalizadas
+            
+            DESAFIO 2: Crie um botão que aplica filtro grayscale
+            - Use JavaScript para adicionar/remover uma classe CSS
+            - A classe deve ter filter: grayscale(100%)
+            
+            DESAFIO 3: Adicione um contador de cliques
+            - Mostre quantas vezes cada miniatura foi clicada
+            - Use um objeto ou array para armazenar os dados
+        -->
+        <section class="desafios">
+            <h2>🎯 Desafios Práticos</h2>
+            <div class="desafios-lista">
+                <div class="desafio">
+                    <h3>Desafio 1</h3>
+                    <p>Adicione mais 2 imagens à galeria com descrições personalizadas</p>
+                </div>
+                <div class="desafio">
+                    <h3>Desafio 2</h3>
+                    <p>Crie um botão que aplica filtro grayscale à imagem principal</p>
+                </div>
+                <div class="desafio">
+                    <h3>Desafio 3</h3>
+                    <p>Adicione um contador que mostre quantas vezes cada miniatura foi clicada</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>💙 Curso de Desenvolvimento de Software - SENAI</p>
+        <p>Transforme seu futuro através da tecnologia</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
